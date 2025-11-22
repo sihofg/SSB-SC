@@ -14,7 +14,6 @@ EQUIPMENTS REQUIRED
 
 Note: Keep all the switch faults in off position
 
-
 Algorithm
 1.	Define Parameters:
 •	Fs: Sampling frequency.
@@ -52,24 +51,37 @@ Model Waveform
 <img width="706" height="167" alt="image" src="https://github.com/user-attachments/assets/bff0d8fd-d679-444e-af37-0b34585853c1" />
 
 Program
-
+```asm
+Am=18.7;
+Fm=610;
+Fs=29000;
+t=0:1/Fs:2/Fm;
+m1=Am*cos(2*3.14*Fm*t);
+subplot(4,1,1);
+plot(t,m1);
+Ac=15.7;
+Fc=2900;
+c1=Ac*cos(2*3.14*Fc*t);
+subplot(4,1,2);
+plot(t,c1);
+m2=Am*cos(1.57-(2*3.14*Fm*t));
+c2=Ac*cos(1.57-(2*3.14*Fc*t));
+s1=c1.*m1;
+s2=c2.*m2;
+S_lsb=s1+s2;
+subplot(4,1,3);
+plot(t,S_lsb);
+S_usb=s1-s2;
+subplot(4,1,4);
+plot(t,S_usb);
+```
 OUTPUT WAVEFORM
+![WhatsApp Image 2025-11-13 at 23 25 11_62b457d9](https://github.com/user-attachments/assets/9501cfdb-c785-41a3-adc3-f0371016c5e5)
 
 TABULATION
-
-
-
-
-
-
-
-
+![3](https://github.com/user-attachments/assets/994ff3eb-1c08-42e1-adae-a127652cc994)
 
 RESULT:
-
 Thus, the SSB-SC-AM Modulation and Demodulation is experimentally done and the output is verified.
-
-
-
 
 
